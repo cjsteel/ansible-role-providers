@@ -1,2 +1,107 @@
 ---
 # tasks file for cjsteel.providers
+
+- name: Ensure for local projects parent directory 
+  delegate_to: 127.0.0.1
+  file:
+    path: "{{ providers_projects_parent }}"
+    state: directory
+    mode: 0700
+
+## default (docker) scenario customizations
+
+- name: Ensure for local projects molecule default (docker) directory
+  delegate_to: 127.0.0.1
+  file:
+    path: "{{ providers_project_directory }}/molecule/default"
+    state: directory
+    mode: 0700
+
+- name: Copy local default (docker) scenario provider file Dockerfile.j2
+  delegate_to: 127.0.0.1
+  copy:
+    src: templates/default/Dockerfile.j2
+    dest: "{{ providers_project_directory }}/molecule/default/Dockerfile.j2"
+    mode: 0700
+
+- name: Template local default (docker) scenario provider file INSTALL.rst
+  delegate_to: 127.0.0.1
+  template:
+    src: templates/default/INSTALL.rst.j2
+    dest: "{{ providers_project_directory }}/molecule/default/INSTALL.rst"
+    mode: 0700
+
+- name: Template local default (docker) scenario provider file molecule.yml
+  delegate_to: 127.0.0.1
+  template:
+    src: templates/default/molecule.yml.j2
+    dest: "{{ providers_project_directory }}/molecule/default/molecule.yml"
+    mode: 0700
+
+- name: Template local default (docker) scenario provider file playbook.yml
+  delegate_to: 127.0.0.1
+  template:
+    src: templates/default/playbook.yml.j2
+    dest: "{{ providers_project_directory }}/molecule/default/playbook.yml"
+    mode: 0700
+
+## lxd scenario customizations
+
+- name: Ensure for local projects molecule lxd scenario directory
+  delegate_to: 127.0.0.1
+  file:
+    path: "{{ providers_project_directory }}/molecule/lxd"
+    state: directory
+    mode: 0700
+
+- name: Template local lxd scenario provider file INSTALL.rst
+  delegate_to: 127.0.0.1
+  template:
+    src: templates/default/INSTALL.rst.j2
+    dest: "{{ providers_project_directory }}/molecule/lxd/INSTALL.rst"
+    mode: 0700
+
+- name: Template local lxd scenario provider file molecule.yml
+  delegate_to: 127.0.0.1
+  template:
+    src: templates/default/molecule.yml.j2
+    dest: "{{ providers_project_directory }}/molecule/lxd/molecule.yml"
+    mode: 0700
+
+- name: Template local lxd scenario provider file playbook.yml
+  delegate_to: 127.0.0.1
+  template:
+    src: templates/lxd/playbook.yml.j2
+    dest: "{{ providers_project_directory }}/molecule/lxd/playbook.yml"
+    mode: 0700
+
+## vagrant scenario customizations
+
+- name: Ensure for local projects molecule vagrant scenario directory
+  delegate_to: 127.0.0.1
+  file:
+    path: "{{ providers_project_directory }}/molecule/vagrant"
+    state: directory
+    mode: 0700
+
+- name: Template local vagrant scenario provider file INSTALL.rst
+  delegate_to: 127.0.0.1
+  template:
+    src: templates/default/INSTALL.rst.j2
+    dest: "{{ providers_project_directory }}/molecule/vagrant/INSTALL.rst"
+    mode: 0700
+
+- name: Template local vagrant scenario provider file molecule.yml
+  delegate_to: 127.0.0.1
+  template:
+    src: templates/default/molecule.yml.j2
+    dest: "{{ providers_project_directory }}/molecule/vagrant/molecule.yml"
+    mode: 0700
+
+- name: Template local vagrant scenario provider file playbook.yml
+  delegate_to: 127.0.0.1
+  template:
+    src: templates/vagrant/playbook.yml.j2
+    dest: "{{ providers_project_directory }}/molecule/vagrant/playbook.yml"
+    mode: 0700
+

@@ -1,6 +1,9 @@
 ---
 # defaults file for cjsteel.providers
 
-provider_role_owner: 'cjsteel'
-provider_role_short_name: 'testrole'
+providers_role_owner: 'cjsteel'
+providers_role_short_name: 'testrole'
+providers_galaxy_name: '{{ providers_role_owner }}.{{ providers_role_short_name }}' 
 
+providers_projects_parent: '~/projects'
+providers_project_directory: '{{ providers_projects_parent }}/{{ providers_galaxy_name }}'
