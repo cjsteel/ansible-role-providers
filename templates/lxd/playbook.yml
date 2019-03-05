@@ -1,0 +1,6 @@
+---
+- name: Converge
+  hosts: all
+  roles:
+    - role: '{{ provider_role_owner}}.{{ provider_role_short_name }}'
+

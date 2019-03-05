@@ -1,0 +1,6 @@
+---
+# defaults file for cjsteel.providers
+
+provider_role_owner: 'cjsteel'
+provider_role_short_name: 'testrole'
+

@@ -1,0 +1,42 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: lxd
+lint:
+  name: yamllint
+platforms:
+  - name: {{ provider_role_short_name }}-xenial
+    source:
+      type: image
+      alias: ubuntu/xenial/amd64
+    architecture: x86_64
+    devices:
+      zfs:
+        path: /dev/zfs
+        type: unix-char
+    profiles:
+      - default
+      - nested
+  - name: {{ provider_role_short_name }}-bionic
+    source:
+      type: image
+      alias: ubuntu/bionic/amd64
+    architecture: x86_64
+    devices:
+      zfs:
+        path: /dev/zfs
+        type: unix-char
+    profiles:
+      - default
+      - nested
+provisioner:
+  name: ansible
+  lint:
+    name: ansible-lint
+scenario:
+  name: lxd
+verifier:
+  name: testinfra
+  lint:
+    name: flake8
