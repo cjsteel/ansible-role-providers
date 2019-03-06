@@ -24,6 +24,11 @@ Role Variables
 providers_role_short_name: 'testrole'
 ```
 
+### providers_project_directory
+
+```shell
+providers_project_directory: /home/csteel/projects/development/cobbler/roles/csteel.common
+```
 Dependencies
 ------------
 
@@ -31,6 +36,17 @@ A list of other roles hosted on Galaxy should go here, plus any details in
 regards to parameters that may need to be set for other roles, or variables that
 are used from other roles.
 
+Example Include
+---------------
+
+```shell
+- name: Run role cjsteel.providers to setup molecule providers for calling role
+  include_role:
+    name: cjsteel.providers
+  vars:
+    providers_role_short_name: 'cjsteel.cobbler'
+    providers_project_directory: '/home/csteel/projects/development/cobbler/roles/csteel.common'
+```
 Example Playbook
 ----------------
 

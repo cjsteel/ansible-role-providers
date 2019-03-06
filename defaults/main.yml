@@ -1,8 +1,10 @@
 ---
 # defaults file for cjsteel.providers
 
+providers_force: true # overwrite files
+
 providers_role_owner: 'cjsteel'
-providers_role_short_name: 'testrole'
+providers_role_short_name: 'virtualenv'
 providers_galaxy_name: '{{ providers_role_owner }}.{{ providers_role_short_name }}' 
 
 providers_projects_parent: '~/projects'

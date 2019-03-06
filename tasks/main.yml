@@ -23,6 +23,7 @@
     src: templates/default/Dockerfile.j2
     dest: "{{ providers_project_directory }}/molecule/default/Dockerfile.j2"
     mode: 0700
+    force: "{{ providers_force }}"
 
 - name: Template local default (docker) scenario provider file INSTALL.rst
   delegate_to: 127.0.0.1
@@ -30,6 +31,7 @@
     src: templates/default/INSTALL.rst.j2
     dest: "{{ providers_project_directory }}/molecule/default/INSTALL.rst"
     mode: 0700
+    force: "{{ providers_force }}"
 
 - name: Template local default (docker) scenario provider file molecule.yml
   delegate_to: 127.0.0.1
@@ -37,6 +39,7 @@
     src: templates/default/molecule.yml.j2
     dest: "{{ providers_project_directory }}/molecule/default/molecule.yml"
     mode: 0700
+    force: "{{ providers_force }}"
 
 - name: Template local default (docker) scenario provider file playbook.yml
   delegate_to: 127.0.0.1
@@ -44,6 +47,7 @@
     src: templates/default/playbook.yml.j2
     dest: "{{ providers_project_directory }}/molecule/default/playbook.yml"
     mode: 0700
+    force: "{{ providers_force }}"
 
 ## lxd scenario customizations
 
@@ -57,16 +61,18 @@
 - name: Template local lxd scenario provider file INSTALL.rst
   delegate_to: 127.0.0.1
   template:
-    src: templates/default/INSTALL.rst.j2
+    src: templates/lxd/INSTALL.rst.j2
     dest: "{{ providers_project_directory }}/molecule/lxd/INSTALL.rst"
     mode: 0700
+    force: "{{ providers_force }}"
 
 - name: Template local lxd scenario provider file molecule.yml
   delegate_to: 127.0.0.1
   template:
-    src: templates/default/molecule.yml.j2
+    src: templates/lxd/molecule.yml.j2
     dest: "{{ providers_project_directory }}/molecule/lxd/molecule.yml"
     mode: 0700
+    force: "{{ providers_force }}"
 
 - name: Template local lxd scenario provider file playbook.yml
   delegate_to: 127.0.0.1
@@ -74,6 +80,7 @@
     src: templates/lxd/playbook.yml.j2
     dest: "{{ providers_project_directory }}/molecule/lxd/playbook.yml"
     mode: 0700
+    force: "{{ providers_force }}"
 
 ## vagrant scenario customizations
 
@@ -87,16 +94,18 @@
 - name: Template local vagrant scenario provider file INSTALL.rst
   delegate_to: 127.0.0.1
   template:
-    src: templates/default/INSTALL.rst.j2
+    src: templates/vagrant/INSTALL.rst.j2
     dest: "{{ providers_project_directory }}/molecule/vagrant/INSTALL.rst"
     mode: 0700
+    force: "{{ providers_force }}"
 
 - name: Template local vagrant scenario provider file molecule.yml
   delegate_to: 127.0.0.1
   template:
-    src: templates/default/molecule.yml.j2
+    src: templates/vagrant/molecule.yml.j2
     dest: "{{ providers_project_directory }}/molecule/vagrant/molecule.yml"
     mode: 0700
+    force: "{{ providers_force }}"
 
 - name: Template local vagrant scenario provider file playbook.yml
   delegate_to: 127.0.0.1
@@ -104,4 +113,4 @@
     src: templates/vagrant/playbook.yml.j2
     dest: "{{ providers_project_directory }}/molecule/vagrant/playbook.yml"
     mode: 0700
-
+    force: "{{ providers_force }}"
