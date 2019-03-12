@@ -66,6 +66,10 @@
     mode: 0700
     force: "{{ providers_force }}"
 
+- debug: 
+    var: providers_project_directory 
+
+
 - name: Template local lxd scenario provider file molecule.yml
   delegate_to: 127.0.0.1
   template:

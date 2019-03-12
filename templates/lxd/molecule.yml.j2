@@ -16,8 +16,9 @@ platforms:
         path: /dev/zfs
         type: unix-char
     profiles:
-      - default
-      - nested
+{% for item in providers_profiles %}
+      - {{ item }}
+{% endfor %}
   - name: {{ providers_role_short_name }}-bionic
     source:
       type: image
@@ -28,8 +29,9 @@ platforms:
         path: /dev/zfs
         type: unix-char
     profiles:
-      - default
-      - nested
+{% for item in providers_profiles %}
+      - {{ item }}
+{% endfor %}
 provisioner:
   name: ansible
   lint:

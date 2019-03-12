@@ -6,7 +6,30 @@ driver:
 lint:
   name: yamllint
 platforms:
-  - name: instance
+  - name: providers-xenial
+    source:
+      type: image
+      alias: ubuntu/xenial/amd64
+    architecture: x86_64
+    devices:
+      zfs:
+        path: /dev/zfs
+        type: unix-char
+    profiles:
+      - default
+      - gui
+  - name: providers-bionic
+    source:
+      type: image
+      alias: ubuntu/bionic/amd64
+    architecture: x86_64
+    devices:
+      zfs:
+        path: /dev/zfs
+        type: unix-char
+    profiles:
+      - default
+      - gui
 provisioner:
   name: ansible
   lint:
