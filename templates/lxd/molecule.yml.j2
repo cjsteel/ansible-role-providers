@@ -6,7 +6,7 @@ driver:
 lint:
   name: yamllint
 platforms:
-  - name: {{ providers_role_short_name }}-xenial
+  - name: {{ providers_short_name }}-xenial
     source:
       type: image
       alias: ubuntu/xenial/amd64
@@ -19,7 +19,7 @@ platforms:
 {% for item in providers_profiles %}
       - {{ item }}
 {% endfor %}
-  - name: {{ providers_role_short_name }}-bionic
+  - name: {{ providers_short_name }}-bionic
     source:
       type: image
       alias: ubuntu/bionic/amd64
