@@ -1,11 +1,7 @@
 #!/bin/bash
 #
-# auto release using github-release cli
+# github-delete-release.sh
 #
-ANSIBLE_ROLE_VERSION="0.0.1"
-GITHUB_USER=cjsteel
-GIT_REPOSITORY=ansible-role-providers
-
 github-release delete \
   --owner $GITHUB_USER \
   --repo $GIT_REPOSITORY \

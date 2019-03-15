@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# auto release using github-release cli
+# github-publish-release.sh
 #
 source ~/.private/github/$GITHUB_USER
 github-release upload \

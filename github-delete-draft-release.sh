@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# github-pre-release.sh
+# github-delete-draft-release.sh
 #
 source ~/.private/github/$GITHUB_USER
 github-release upload \
@@ -9,4 +9,4 @@ github-release upload \
   --tag $ANSIBLE_ROLE_VERSION \
   --name $ANSIBLE_ROLE_VERSION \
   --body "Release $ANSIBLE_ROLE_VERSION" \
-  --prerelease
+  --draft=false
