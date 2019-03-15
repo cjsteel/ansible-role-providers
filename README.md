@@ -44,6 +44,114 @@ are used from other roles.
 Example Include
 ---------------
 
+### Molecule update able lxd scenario 
+
+`molecule/lxd/update_provider_files.yml`:
+
+```shell
+---
+# update_providers.yml
+#
+# ATTENTION: USE WITH CAUTION. This playbook is used to update THIS ROLES molecule scenario files. Test  and should be used 
+#
+#
+- name: Converge updated provider files
+  hosts: all
+  vars:
+
+    providers_role_owner: 'cjsteel'
+    providers_role_short_name: 'resources'
+    providers_galaxy_name: '{{ providers_role_owner }}.{{ providers_role_short_name }}'
+    providers_project_directory: "{{ lookup('env', 'PWD') }}"
+
+    # Set value to true for file to be updated
+
+    providers_update_docker_install_rst: false # Caution - updates scenario files
+    providers_update_docker_molecule_yml: false # Caution - updates scenario files
+    providers_update_docker_playbook_yml: false # Caution - updates scenario files
+
+  roles:
+    - role: cjsteel.providers
+
+```
+
+`molecule/lxd/update_provider_files.yml`:
+
+here our calling role is asking to have all docker scenario files to be updated. 
+
+```shell
+---
+- name: Converge
+  hosts: all
+  tasks:
+   - set_fact:
+
+      update_provider_files: true
+      providers_update_docker_all_files: true
+
+- name: "Update this roles provier files when update_provider_files is true"
+  import_playbook: update_provider_files.yml update_pr
+  when: update_provider_files
+
+- name: Converge
+  hosts: all
+  roles:
+
+    - role: cjsteel.resources
+
+```
+
+Triggering updates:
+
+Updating this block in playbook.yml of any scenario triggers the requested updates and as a side effect ovewrites the file with the templated / default version in the providers role:
+
+```shell
+---
+- name: Converge
+  hosts: all
+  tasks:
+   - set_fact:
+
+      update_provider_files: true
+      providers_update_docker_all_files: true
+
+- name: "Update this roles provier files when update_provider_files is true"
+  import_playbook: update_provider_files.yml update_pr
+  when: update_provider_files
+  
+```
+
+
+
+```shell
+---
+# DANGER - HIGH VOLTAGE - boilerplate used for updating to update THIS ROLES molecule scenario files.
+#
+#
+- name: Converge updated provider files
+  hosts: all
+  vars:
+
+    providers_short_name: model
+    providers_galaxy_name: cjsteel.model
+
+    providers_project_directory: "{{ lookup('env', 'PWD') }}"
+    # files to be ubpdated should be set to be true
+    providers_update_lxd_install_rst: false   # caution - updates this roles molecule scenario files
+    providers_update_lxd_molecule_yml: false  # caution - updates this roles molecule scenario files
+    providers_update_lxd_playbook_yml: false  # caution - updates this roles molecule scenario files
+
+  pre_tasks:
+    - debug:
+        var: providers_project_directory
+  roles:
+    - role: cjsteel.providers
+
+
+```
+
+
+
 ```shell
 - name: Run role cjsteel.providers to setup molecule providers for calling role
   include_role:

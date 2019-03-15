@@ -1,28 +1,53 @@
 ---
 # defaults file for cjsteel.providers
 
-providers_force: true # overwrite files
+providers_force: true  # overwrite files
 providers_profiles:
   - default
   - gui
 providers_role_owner: 'cjsteel'
 providers_role_short_name: 'providers_role_test'
-providers_galaxy_name: '{{ providers_role_owner }}.{{ providers_role_short_name }}' 
+providers_galaxy_name: '{{ providers_role_owner }}.{{ providers_role_short_name }}'
 
 providers_projects_parent: '~/projects/development/ansible-project-controller/roles'
 providers_project_directory: '{{ providers_projects_parent }}/{{ providers_galaxy_name }}'
 
-# Prevent clobbering files by accident, set to true in calling role
+# In order to prevent clobbering files by accident all items are set to "false"
+# in defaults/main.yml and should remain as "false".
+#
+# See the roles README.md on how calling roles can over ride speciic values.
 
-providers_update_dockerfile: false
-providers_update_install_rst: false
-providers_update_molecule_yml: false
-providers_update_playbook_yml: false
-providers_update_prepare_yml: false
+# update all provider files
 
-## lxd
+providers_update_all_files: false
 
+## Update entire scenario
+
+providers_update_all_dockerfile: false
+providers_update_all_install_rst: false
+providers_update_all_molecule_yml: false
+providers_update_all_playbook_yml: false
+providers_update_all_prepare_yml: false
+
+## Update particular docker scenario files
+
+providers_update_docker_all_files: false
+providers_update_docker_dockerfile: false
+providers_update_docker_install_rst: false
+providers_update_docker_molecule_yml: false
+providers_update_docker_playbook_yml: false
+
+## Update particular lxd scenario files
+
+providers_update_lxd_all_files: false
 providers_update_lxd_install_rst: false
 providers_update_lxd_molecule_yml: false
 providers_update_lxd_playbook_yml: false
 
+## Update particular vagrant scenario files
+
+providers_update_vagrant_all_files: false
+providers_update_vagrant_install_rst: false
+providers_update_vagrant_molecule_yml: false
+providers_update_vagrant_playbook_yml: false
+providers_update_vagrant_prepare_yml: false

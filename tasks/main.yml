@@ -1,7 +1,7 @@
 ---
 # tasks file for cjsteel.providers
 
-- name: Ensure for local projects parent directory 
+- name: Ensure for local projects parent directory
   delegate_to: 127.0.0.1
   file:
     path: "{{ providers_projects_parent }}"
@@ -16,6 +16,12 @@
     path: "{{ providers_project_directory }}/molecule/default"
     state: directory
     mode: 0700
+  when: providers_update_all_files or
+        providers_update_docker_all_files or
+        providers_update_docker_dockerfile or
+        providers_update_docker_install_rst or
+        providers_update_docker_molecule_yml or
+        providers_update_docker_playbook_yml
 
 - name: Copy local default (docker) scenario provider file Dockerfile.j2
   delegate_to: 127.0.0.1
@@ -24,7 +30,9 @@
     dest: "{{ providers_project_directory }}/molecule/default/Dockerfile.j2"
     mode: 0700
     force: "{{ providers_force }}"
-  when: providers_update_dockerfile
+  when: providers_update_all_files or
+        providers_update_docker_all_files or
+        providers_update_docker_dockerfile
 
 - name: Template local default (docker) scenario provider file INSTALL.rst
   delegate_to: 127.0.0.1
@@ -33,7 +41,9 @@
     dest: "{{ providers_project_directory }}/molecule/default/INSTALL.rst"
     mode: 0700
     force: "{{ providers_force }}"
-  when: providers_update_install_rst
+  when: providers_update_all_files or
+        providers_update_docker_all_files or
+        providers_update_docker_install_rst
 
 - name: Template local default (docker) scenario provider file molecule.yml
   delegate_to: 127.0.0.1
@@ -42,7 +52,9 @@
     dest: "{{ providers_project_directory }}/molecule/default/molecule.yml"
     mode: 0700
     force: "{{ providers_force }}"
-  when: providers_update_molecule_yml
+  when: providers_update_all_files or
+        providers_update_docker_all_files or
+        providers_update_docker_molecule_yml
 
 - name: Template local default (docker) scenario provider file playbook.yml
   delegate_to: 127.0.0.1
@@ -51,7 +63,9 @@
     dest: "{{ providers_project_directory }}/molecule/default/playbook.yml"
     mode: 0700
     force: "{{ providers_force }}"
-  when: providers_update_playbook_yml
+  when: providers_update_all_files or
+        providers_update_docker_all_files or
+        providers_update_docker_playbook_yml
 
 ## lxd scenario customizations
 
@@ -61,6 +75,11 @@
     path: "{{ providers_project_directory }}/molecule/lxd"
     state: directory
     mode: 0700
+  when: providers_update_all_files or
+        providers_update_lxd_all_files or
+        providers_update_lxd_install_rst or
+        providers_update_lxd_molecule_yml or
+        providers_update_lxd_playbook_yml
 
 - name: Template local lxd scenario provider file INSTALL.rst
   delegate_to: 127.0.0.1
@@ -69,14 +88,9 @@
     dest: "{{ providers_project_directory }}/molecule/lxd/INSTALL.rst"
     mode: 0700
     force: "{{ providers_force }}"
-  when: providers_update_lxd_install_rst
-
-- debug:
-    var: providers_role_short_name
-- debug:
-    var: providers_galaxy_name
-- debug: 
-    var: providers_project_directory 
+  when: providers_update_all_files or
+        providers_update_lxd_all_files or
+        providers_update_lxd_install_rst
 
 - name: Template local lxd scenario provider file molecule.yml
   delegate_to: 127.0.0.1
@@ -85,7 +99,9 @@
     dest: "{{ providers_project_directory }}/molecule/lxd/molecule.yml"
     mode: 0700
     force: "{{ providers_force }}"
-  when: providers_update_lxd_molecule_yml
+  when: providers_update_all_files or
+        providers_update_lxd_all_files or
+        providers_update_lxd_molecule_yml
 
 - name: Template local lxd scenario provider file playbook.yml
   delegate_to: 127.0.0.1
@@ -94,7 +110,9 @@
     dest: "{{ providers_project_directory }}/molecule/lxd/playbook.yml"
     mode: 0700
     force: "{{ providers_force }}"
-  when: providers_update_lxd_playbook_yml
+  when: providers_update_all_files or
+        providers_update_lxd_all_files or
+        providers_update_lxd_playbook_yml
 
 ## vagrant scenario customizations
 
@@ -104,6 +122,11 @@
     path: "{{ providers_project_directory }}/molecule/vagrant"
     state: directory
     mode: 0700
+  when: providers_update_all_files or
+        providers_update_vagrant_all_files or
+        providers_update_vagrant_install_rst or
+        providers_update_vagrant_molecule_yml or
+        providers_update_vagrant_playbook_yml
 
 - name: Template local vagrant scenario provider file INSTALL.rst
   delegate_to: 127.0.0.1
@@ -112,7 +135,9 @@
     dest: "{{ providers_project_directory }}/molecule/vagrant/INSTALL.rst"
     mode: 0700
     force: "{{ providers_force }}"
-  when: providers_update_install_rst
+  when: providers_update_all_files or
+        providers_update_vagrant_all_files or
+        providers_update_vagrant_install_rst
 
 - name: Template local vagrant scenario provider file molecule.yml
   delegate_to: 127.0.0.1
@@ -121,7 +146,9 @@
     dest: "{{ providers_project_directory }}/molecule/vagrant/molecule.yml"
     mode: 0700
     force: "{{ providers_force }}"
-  when: providers_update_molecule_yml
+  when: providers_update_all_files or
+        providers_update_vagrant_all_files or
+        providers_update_vagrant_molecule_yml
 
 - name: Template local vagrant scenario provider file playbook.yml
   delegate_to: 127.0.0.1
@@ -130,7 +157,9 @@
     dest: "{{ providers_project_directory }}/molecule/vagrant/playbook.yml"
     mode: 0700
     force: "{{ providers_force }}"
-  when: providers_update_playbook_yml
+  when: providers_update_all_files or
+        providers_update_vagrant_all_files or
+        providers_update_vagrant_playbook_yml
 
 - name: Template local vagrant scenario provider file prepare.yml
   delegate_to: 127.0.0.1
@@ -139,5 +168,6 @@
     dest: "{{ providers_project_directory }}/molecule/vagrant/prepare.yml"
     mode: 0700
     force: "{{ providers_force }}"
-  when: providers_update_prepare_yml
-
+  when: providers_update_all_files or
+        providers_update_vagrant_all_files or
+        providers_update_vagrant_prepare_yml
