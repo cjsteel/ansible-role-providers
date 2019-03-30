@@ -1,6 +1,11 @@
 ansible-role-provider
 =========
 
+[![Build Status](https://travis-ci.org/cjsteel/ansible-role-providers.svg?branch
+=master)](https://travis-ci.org/cjsteel/ansible-role-providers)[![Ansible Galaxy
+](http://img.shields.io/badge/ansible--galaxy-resources-blue.svg)](https://galax
+y.ansible.com/cjsteel/providers/)
+
 Experiment in templating molecule provider files
 
 Notes
