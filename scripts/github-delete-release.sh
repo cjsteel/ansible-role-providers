@@ -1,10 +1,13 @@
 #!/bin/bash
 #
-# github-delete-release.sh
+# scripts//github-delete-release.sh
 #
+source ~/.private/github/$GIT_ACCOUNT
+source scripts/github-release-variables.sh
+source scripts/github-release-variables-test.sh
 github-release delete \
-  --owner $GITHUB_USER \
+  --owner $GIT_ACCOUNT \
   --repo $GIT_REPOSITORY \
-  --tag $ANSIBLE_ROLE_VERSION \
-  --name $ANSIBLE_ROLE_VERSION \
-  $ANSIBLE_ROLE_VERSION.zip $ANSIBLE_ROLE_VERSION.tar.gz
+  --tag $GIT_TAG \
+  --name $GIT_TAG \
+  "*.*"

@@ -2,11 +2,13 @@
 #
 # github-publish-release.sh
 #
-source ~/.private/github/$GITHUB_USER
+source ~/.private/github/$GIT_ACCOUNT
+source scripts/github-release-variables.sh
+source scripts/github-release-variables-test.sh
 github-release upload \
-  --owner $GITHUB_USER \
+  --owner $GIT_ACCOUNT \
   --repo $GIT_REPOSITORY \
-  --tag $ANSIBLE_ROLE_VERSION \
-  --name $ANSIBLE_ROLE_VERSION \
-  --body "Release $ANSIBLE_ROLE_VERSION" \
+  --tag $GIT_TAG \
+  --name $GIT_TAG \
+  --body "Release $GIT_ACCOUNT.$GIT_SHORT_NAME $GIT_TAG" \
   --prerelease=false

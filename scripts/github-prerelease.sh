@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# github-prerelease.sh
+# scripts/github-prerelease.sh
 #
 source ~/.private/github/$GIT_ACCOUNT
 source scripts/github-release-variables.sh

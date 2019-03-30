@@ -1,12 +1,13 @@
 #!/bin/bash
 #
-# github-delete-draft-release.sh
+# scripts/github-delete-draft-release.sh
 #
-source ~/.private/github/$GITHUB_USER
-github-release upload \
-  --owner $GITHUB_USER \
+source ~/.private/github/$GIT_ACCOUNT
+source scripts/github-release-variables.sh
+source scripts/github-release-variables-test.sh
+  --owner $GIT_ACCOUNT \
   --repo $GIT_REPOSITORY \
-  --tag $ANSIBLE_ROLE_VERSION \
-  --name $ANSIBLE_ROLE_VERSION \
-  --body "Release $ANSIBLE_ROLE_VERSION" \
-  --draft=false
+  --tag $GIT_TAG \
+  --name $GIT_TAG \
+  --body "Draft release $GIT_ACCOUNT.$GIT_SHORT_NAME $GIT_TAG" \
+  --draft
