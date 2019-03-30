@@ -1,11 +1,13 @@
 ---
 dependencies: []
+
 galaxy_info:
   author: Christopher Steel
+  role_name: providers
   description: An Ansible role for updating the molecule scenario files of other roles
   company: McGill Centre for Integrative Neuroscience (MCIN)
   license: MIT
-  min_ansible_version: 2.0
+  min_ansible_version: 2.7.8
   platforms:
     - name: EL
       versions:
@@ -22,6 +24,7 @@ galaxy_info:
   galaxy_tags:
     - development
     - molecule
+    - providers
     - system
     - server
     - tools
