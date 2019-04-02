@@ -114,6 +114,17 @@
         providers_update_lxd_all_files or
         providers_update_lxd_playbook_yml
 
+- name: Template local lxd scenario provider file playbook2.yml
+  delegate_to: 127.0.0.1
+  template:
+    src: templates/lxd/playbook2.yml.j2
+    dest: "{{ providers_project_directory }}/molecule/lxd/playbook2.yml"
+    mode: 0700
+    force: "{{ providers_force }}"
+  when: providers_update_all_files or
+        providers_update_lxd_all_files or
+        providers_update_lxd_playbook2_yml
+
 ## vagrant scenario customizations
 
 - name: Ensure for local projects molecule vagrant scenario directory

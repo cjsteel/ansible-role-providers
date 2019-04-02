@@ -5,15 +5,51 @@ ansible-role-provider
 
 Experiment in templating molecule provider files
 
-Notes
+Usage notes
 ---
 
-Requirements
-------------
+* Generally run from another role.
+* The calling role requires a bootstrap molecule/some_scenario/playbook.yml  file.
+* To replace one or more scenario files set the variable for the target file or file group of files to be true.
+* In the example below we update the example playbook,yml itself by setting `    providers_update_lxd_molecule_yml` to be true.
+* Keep in mind that on the first run the original playbook.yml is run rather than the updated version.
 
-Any pre-requisites that may not be covered by Ansible itself or the role should
-be mentioned here. For instance, if the role uses the EC2 module, it may be a
-good idea to mention in this section that the boto package is required.
+Bootstrap playbook example:
+
+```shell
+---
+# molecule/lxd/playbook.yml
+#
+# boilerplate used to update this roles molecule lxd scenario files.
+#
+#
+- name: Converge updated provider files
+  hosts: all
+  vars:
+
+    providers_short_name: model
+    providers_galaxy_name: cjsteel.model
+
+    providers_project_directory: "{{ lookup('env', 'PWD') }}"
+    # files to be ubpdated should be set to be true
+    # updating the lxd playbook file will overwrite this file
+    providers_update_all_files: false         # !!update all scenario files!!
+    providers_update_lxd_all_files: false     # !update all updatable lxd scenario files!
+    providers_update_lxd_install_rst: false   # updates this molecule scenario file
+    providers_update_lxd_molecule_yml: true   # updates this molecule scenario file
+    providers_update_lxd_playbook_yml: false  # updates this molecule scenario file
+    providers_update_lxd_playbook2_yml: false  # updates this molecule scenario file
+
+  pre_tasks:
+    - debug:
+        var: providers_project_directory
+  roles:
+    - role: cjsteel.providers
+
+- import_playbook: playbook2.yml
+```
+
+
 
 Roadmap
 -------

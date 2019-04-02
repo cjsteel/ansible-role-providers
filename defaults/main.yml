@@ -43,6 +43,7 @@ providers_update_lxd_all_files: false
 providers_update_lxd_install_rst: false
 providers_update_lxd_molecule_yml: false
 providers_update_lxd_playbook_yml: false
+providers_update_lxd_playbook2_yml: false
 
 ## Update particular vagrant scenario files
 
