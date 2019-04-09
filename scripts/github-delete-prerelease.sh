@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# scripts//github-delete-prerelease.sh
+# scripts//github-delete-release.sh
 #
 source scripts/github-release-variables.sh
 source ~/.private/github/$GIT_ACCOUNT
