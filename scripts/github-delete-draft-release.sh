@@ -2,6 +2,7 @@
 #
 # github-delete-draft-release.sh
 #
+source scripts/github-release-variables.sh
 source ~/.private/github/$GIT_ACCOUNT
 source scripts/github-release-variables.sh
 source scripts/github-release-variables-test.sh
