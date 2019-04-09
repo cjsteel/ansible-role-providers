@@ -1,0 +1,27 @@
+---
+# molecule/lxd/playbook2.yml
+#
+# Regular playbook stuff starts here
+#
+#
+- name: Converge
+  hosts: all
+  vars:
+    pip_install_packages:
+      - docker
+    users:
+      - username: ubuntu
+        groups:
+          - ubuntu
+          # - docker
+        append: true
+    vagrant_version: 2.2.3
+    vagrant_virtualbox_install: false
+
+  roles:
+    - role: cjsteel.providers
+    # - role: geerlingguy.clamav
+    # - role: geerlingguy.pip
+    # - role: geerlingguy.docker
+    # - role: weareinteractive.users
+    # - role: jdauphant.vagrant
