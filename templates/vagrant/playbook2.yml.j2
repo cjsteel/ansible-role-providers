@@ -1,5 +1,5 @@
 ---
-# molecule/lxd/playbook2.yml
+# molecule/vagrant/playbook2.yml
 #
 # Regular playbook stuff starts here
 #
@@ -12,8 +12,7 @@
     users:
       - username: ubuntu
         groups:
-          - ubuntu
-          # - docker
+          - docker
         append: true
     vagrant_version: 2.2.3
     vagrant_virtualbox_install: false
