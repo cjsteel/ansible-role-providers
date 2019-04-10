@@ -17,11 +17,7 @@
     state: directory
     mode: 0700
   when: providers_update_all_files or
-        providers_update_docker_all_files or
-        providers_update_docker_dockerfile or
-        providers_update_docker_install_rst or
-        providers_update_docker_molecule_yml or
-        providers_update_docker_playbook_yml
+        providers_update_docker_all_files
 
 - name: Copy local default (docker) scenario provider file Dockerfile.j2
   delegate_to: 127.0.0.1
@@ -31,6 +27,7 @@
     mode: 0700
     force: "{{ providers_force }}"
   when: providers_update_all_files or
+        providers_update_all_dockerfile or
         providers_update_docker_all_files or
         providers_update_docker_dockerfile
 
@@ -42,6 +39,7 @@
     mode: 0700
     force: "{{ providers_force }}"
   when: providers_update_all_files or
+        providers_update_all_install_rst or
         providers_update_docker_all_files or
         providers_update_docker_install_rst
 
@@ -53,6 +51,7 @@
     mode: 0700
     force: "{{ providers_force }}"
   when: providers_update_all_files or
+        providers_update_all_molecule_yml or
         providers_update_docker_all_files or
         providers_update_docker_molecule_yml
 
@@ -64,6 +63,7 @@
     mode: 0700
     force: "{{ providers_force }}"
   when: providers_update_all_files or
+        providers_update_all_playbook_yml or
         providers_update_docker_all_files or
         providers_update_docker_playbook_yml
 
@@ -89,10 +89,7 @@
     state: directory
     mode: 0700
   when: providers_update_all_files or
-        providers_update_lxd_all_files or
-        providers_update_lxd_install_rst or
-        providers_update_lxd_molecule_yml or
-        providers_update_lxd_playbook_yml
+        providers_update_lxd_all_files
 
 - name: Template local lxd scenario provider file INSTALL.rst
   delegate_to: 127.0.0.1
@@ -102,6 +99,7 @@
     mode: 0700
     force: "{{ providers_force }}"
   when: providers_update_all_files or
+        providers_update_all_install_rst or
         providers_update_lxd_all_files or
         providers_update_lxd_install_rst
 
@@ -113,6 +111,7 @@
     mode: 0700
     force: "{{ providers_force }}"
   when: providers_update_all_files or
+        providers_update_all_molecule_yml or
         providers_update_lxd_all_files or
         providers_update_lxd_molecule_yml
 
@@ -124,6 +123,7 @@
     mode: 0700
     force: "{{ providers_force }}"
   when: providers_update_all_files or
+        providers_update_all_playbook_yml or
         providers_update_lxd_all_files or
         providers_update_lxd_playbook_yml
 
@@ -149,10 +149,7 @@
     state: directory
     mode: 0700
   when: providers_update_all_files or
-        providers_update_vagrant_all_files or
-        providers_update_vagrant_install_rst or
-        providers_update_vagrant_molecule_yml or
-        providers_update_vagrant_playbook_yml
+        providers_update_vagrant_all_files
 
 - name: Template local vagrant scenario provider file INSTALL.rst
   delegate_to: 127.0.0.1
@@ -162,6 +159,7 @@
     mode: 0700
     force: "{{ providers_force }}"
   when: providers_update_all_files or
+        providers_update_all_install_rst or
         providers_update_vagrant_all_files or
         providers_update_vagrant_install_rst
 
@@ -173,6 +171,7 @@
     mode: 0700
     force: "{{ providers_force }}"
   when: providers_update_all_files or
+        providers_update_all_molecule_yml or
         providers_update_vagrant_all_files or
         providers_update_vagrant_molecule_yml
 
@@ -184,6 +183,7 @@
     mode: 0700
     force: "{{ providers_force }}"
   when: providers_update_all_files or
+        providers_update_all_playbook_yml or
         providers_update_vagrant_all_files or
         providers_update_vagrant_playbook_yml
 
@@ -208,5 +208,6 @@
     mode: 0700
     force: "{{ providers_force }}"
   when: providers_update_all_files or
+        providers_update_all_prepare_yml or
         providers_update_vagrant_all_files or
         providers_update_vagrant_prepare_yml
