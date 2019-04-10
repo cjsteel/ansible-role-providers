@@ -3,7 +3,14 @@ ansible-role-provider
 
 [![Build Status](https://travis-ci.org/cjsteel/ansible-role-providers.svg?branch=master)](https://travis-ci.org/cjsteel/ansible-role-providers)[![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-resources-blue.svg)](https://galaxy.ansible.com/cjsteel/providers/)
 
-Experiment in templating molecule provider files
+## Description
+
+An Ansible role for updating the molecule scenario files of other roles,
+
+Scenario:
+
+* You are using molecule for testing multiple ansible roles and/or ansible projects. 
+* You want to update one or more roles or projects molecule files or add new provider support via automation.
 
 ## Usage notes
 
