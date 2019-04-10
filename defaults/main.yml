@@ -2,6 +2,7 @@
 # defaults file for cjsteel.providers
 
 providers_force: true  # overwrite files
+providers_backup_playbook2: true
 providers_profiles:
   - default
   - gui
@@ -27,6 +28,7 @@ providers_update_all_dockerfile: false
 providers_update_all_install_rst: false
 providers_update_all_molecule_yml: false
 providers_update_all_playbook_yml: false
+providers_update_all_playbook2_yml: false
 providers_update_all_prepare_yml: false
 
 ## Update particular docker scenario files
@@ -36,6 +38,7 @@ providers_update_docker_dockerfile: false
 providers_update_docker_install_rst: false
 providers_update_docker_molecule_yml: false
 providers_update_docker_playbook_yml: false
+providers_update_docker_playbook2_yml: false
 
 ## Update particular lxd scenario files
 
@@ -51,4 +54,5 @@ providers_update_vagrant_all_files: false
 providers_update_vagrant_install_rst: false
 providers_update_vagrant_molecule_yml: false
 providers_update_vagrant_playbook_yml: false
+providers_update_vagrant_playbook2_yml: false
 providers_update_vagrant_prepare_yml: false

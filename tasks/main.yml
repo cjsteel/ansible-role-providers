@@ -67,6 +67,19 @@
         providers_update_docker_all_files or
         providers_update_docker_playbook_yml
 
+- name: Template local default (docker) scenario provider file playbook2.yml
+  delegate_to: 127.0.0.1
+  template:
+    src: templates/default/playbook2.yml.j2
+    dest: "{{ providers_project_directory }}/molecule/default/playbook2.yml"
+    mode: 0700
+    force: "{{ providers_force }}"
+    backup: "{{ providers_backup_playbook2 }}"
+  when: providers_update_all_files or
+        providers_update_all_playbook2_yml or
+        providers_update_docker_all_files or
+        providers_update_docker_playbook2_yml
+
 ## lxd scenario customizations
 
 - name: Ensure for local projects molecule lxd scenario directory
@@ -121,7 +134,9 @@
     dest: "{{ providers_project_directory }}/molecule/lxd/playbook2.yml"
     mode: 0700
     force: "{{ providers_force }}"
+    backup: "{{ providers_backup_playbook2 }}"
   when: providers_update_all_files or
+        providers_update_all_playbook2_yml or
         providers_update_lxd_all_files or
         providers_update_lxd_playbook2_yml
 
@@ -171,6 +186,19 @@
   when: providers_update_all_files or
         providers_update_vagrant_all_files or
         providers_update_vagrant_playbook_yml
+
+- name: Template local vagrant scenario provider file playbook2.yml
+  delegate_to: 127.0.0.1
+  template:
+    src: templates/vagrant/playbook.yml.j2
+    dest: "{{ providers_project_directory }}/molecule/vagrant/playbook2.yml"
+    mode: 0700
+    force: "{{ providers_force }}"
+    backup: "{{ providers_backup_playbook2 }}"
+  when: providers_update_all_files or
+        providers_update_all_playbook2_yml or
+        providers_update_vagrant_all_files or
+        providers_update_vagrant_playbook2_yml
 
 - name: Template local vagrant scenario provider file prepare.yml
   delegate_to: 127.0.0.1

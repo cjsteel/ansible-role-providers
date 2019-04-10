@@ -1,5 +1,5 @@
 ---
-# molecule/vagrant/playbook2.yml
+# molecule/default/playbook2.yml
 #
 # Regular playbook stuff starts here
 #
@@ -18,7 +18,7 @@
     vagrant_virtualbox_install: false
 
   roles:
-    - role: {{ providers_galaxy_name }}
+    - role: cjsteel.providers
     # - role: geerlingguy.clamav
     # - role: geerlingguy.pip
     # - role: geerlingguy.docker
