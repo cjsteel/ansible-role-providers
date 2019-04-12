@@ -15,7 +15,7 @@
     providers_project_directory: "{{ lookup('env', 'PWD') }}"
 
     # files to be ubpdated should be set to be true
-    providers_force: false                    # overwrite (clobber) existing files
+    providers_force: true                    # overwrite (clobber) existing files
 
     # set one or more items to true as desired
     providers_update_all_files: false         # update all scenario files
@@ -29,7 +29,7 @@
     providers_update_all_prepare_yml: false
 
     # per provider
-    providers_update_docker_all_files: false   # !update all updatable docker (default) scenario
+    providers_update_docker_all_files: true   # !update all updatable docker (default) scenario
     providers_update_lxd_all_files: false       # !update all updatable lxd scenario
     providers_update_vagrant_all_files: false   # !update all updatable vagrant scenario
 

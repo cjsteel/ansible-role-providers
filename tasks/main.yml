@@ -190,7 +190,7 @@
 - name: Template local vagrant scenario provider file playbook2.yml
   delegate_to: 127.0.0.1
   template:
-    src: templates/vagrant/playbook.yml.j2
+    src: templates/vagrant/playbook2.yml.j2
     dest: "{{ providers_project_directory }}/molecule/vagrant/playbook2.yml"
     mode: 0700
     force: "{{ providers_force }}"
@@ -203,7 +203,7 @@
 - name: Template local vagrant scenario provider file prepare.yml
   delegate_to: 127.0.0.1
   template:
-    src: templates/vagrant/playbook.yml.j2
+    src: templates/vagrant/prepare.yml.j2
     dest: "{{ providers_project_directory }}/molecule/vagrant/prepare.yml"
     mode: 0700
     force: "{{ providers_force }}"

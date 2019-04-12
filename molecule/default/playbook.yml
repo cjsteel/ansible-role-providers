@@ -30,7 +30,7 @@
 
     # per provider
     providers_update_docker_all_files: false   # !update all updatable docker (default) scenario
-    providers_update_lxd_all_files: false       # !update all updatable lxd scenario
+    providers_update_lxd_all_files: true       # !update all updatable lxd scenario
     providers_update_vagrant_all_files: false   # !update all updatable vagrant scenario
 
     # per individual vagrant provider file
