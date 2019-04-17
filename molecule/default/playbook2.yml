@@ -18,4 +18,4 @@
     vagrant_virtualbox_install: false
 
   roles:
-    - role: 
+    - role: cjsteel.providers

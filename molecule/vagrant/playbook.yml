@@ -9,7 +9,6 @@
   hosts: all
   vars:
 
-
     providers_project_directory: "{{ lookup('env', 'PWD') }}"
     providers_galaxy_name: "{{ lookup('pipe', 'basename {{ providers_project_directory }}') }}"
     providers_galaxy_user_name: "{{  providers_galaxy_name.split('.')[0] | lower }}"
