@@ -9,12 +9,15 @@
   hosts: all
   vars:
 
-    providers_short_name: providers
-    providers_galaxy_name: cjsteel.providers
 
     providers_project_directory: "{{ lookup('env', 'PWD') }}"
+    providers_galaxy_name: "{{ lookup('pipe', 'basename {{ providers_project_directory }}') }}"
+    providers_galaxy_user_name: "{{  providers_galaxy_name.split('.')[0] | lower }}"
+    providers_short_name: "{{  providers_galaxy_name.split('.')[1] | lower }}"
+
     # files to be ubpdated should be set to be true
-    providers_force: false                    # overwrite (clobber) existing files
+    providers_force: false  # overwrite(s) (clobber(s) existing file(s) unless provider_backup true
+    providers_backup: true
 
     # all supported molecule provider files
     providers_update_all_files: false         # update all scenario files

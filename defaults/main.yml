@@ -2,7 +2,7 @@
 # defaults file for cjsteel.providers
 
 providers_force: true  # overwrite files
-providers_backup_playbook2: true
+providers_backup: true
 providers_profiles:
   - default
   - gui

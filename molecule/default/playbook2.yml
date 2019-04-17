@@ -18,9 +18,4 @@
     vagrant_virtualbox_install: false
 
   roles:
-    - role: cjsteel.providers
-    # - role: geerlingguy.clamav
-    # - role: geerlingguy.pip
-    # - role: geerlingguy.docker
-    # - role: weareinteractive.users
-    # - role: jdauphant.vagrant
+    - role: 
